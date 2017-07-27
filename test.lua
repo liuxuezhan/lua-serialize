@@ -1,11 +1,10 @@
 s = require "serialize"
+dofile("../lualib/mytool.lua")
 
-b = s.pack{[10] = {1,2}}
-s.dump(b)
+b = s.pack{1,[10]=10,["10"] = {1,2}}
+--s.dump(b)
 bb = s.unpack(b)
-for k,v in pairs(bb[10]) do
-	print(k,v)
-end
+lxz(bb)
 
 --[[
 
@@ -37,5 +36,5 @@ print("-------")
 pr(s.deserialize(seri))
 ]]
 
-a = s.serialize_string( 1,2,3,4,5 )
-print(#a, s.deseristring_string(a))
+--a = s.serialize_string( 1,2,3,4,5 )
+--print(#a, s.deseristring_string(a))
